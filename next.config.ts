@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    domains: [
+      'cdn.shopify.com',
+      'static.vecteezy.com',
+      'images.pexels.com',
+      'images.stockcake.com',
+      'media.istockphoto.com'
+    ]
+  }
+}
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+module.exports = nextConfig;

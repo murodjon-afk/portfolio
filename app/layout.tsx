@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Header from "../components/ui/Header"; // НЕ должен содержать "use client"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,15 +9,28 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
+        <Header />
         {children}
+
+        <footer className="bg-gray-900 text-gray-300 py-8 ">
+          <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-xl font-bold text-white">Muro.dev</div>
+            <div className="flex gap-6 text-gray-400">
+              <a href="https://github.com/murodjon-afk" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">GitHub</a>
+              <a href="https://www.instagram.com/murod_coder007/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Instagram</a>
+              <a href="https://t.me/muro_tojik" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Telegram</a>
+            </div>
+            <div className="text-sm text-gray-500">
+              © {new Date().getFullYear()} +998-88-460-65-75.
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );

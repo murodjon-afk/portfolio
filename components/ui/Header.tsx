@@ -48,6 +48,9 @@ export default function Header() {
     <Link href="/education" onClick={handleClose}  className="mt-2 w-full h-12 rounded-xl flex items-center justify-center  font-medium bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 hover:brightness-110 transition cursor-pointer">
       Образование
     </Link>
+      <Link href="/experience" onClick={handleClose}  className="mt-2 w-full h-12 rounded-xl flex items-center justify-center  font-medium bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 hover:brightness-110 transition cursor-pointer">
+      Опыт
+    </Link>
   </nav>
    <SheetClose asChild>
     <button className="mt-6 w-full h-12 rounded-xl font-medium bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 hover:brightness-110 transition cursor-pointer">

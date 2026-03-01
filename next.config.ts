@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+   transpilePackages: ['@splinetool/react-spline'],
+  experimental: {
+    turbo: {
+      rules: {
+        // Игнорируем специфические расширения для корректной передачи буфера
+        '*.splinecode': ['raw-loader'],
+      },
+    },
+  },
   images: {
     domains: [
       'cdn.shopify.com',
@@ -11,4 +20,3 @@ const nextConfig = {
   }
 }
 
-module.exports = nextConfig;

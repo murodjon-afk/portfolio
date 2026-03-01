@@ -1,324 +1,163 @@
 "use client";
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useState } from "react";
-import { useEffect, useRef } from 'react'
-import Image from "next/image";
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaGitAlt,
-  FaGithub,
-  FaReact,
-  FaNodeJs,
-  FaDatabase,
-} from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiPostgresql,
-  SiVercel,
-  SiVite,
-} from "react-icons/si";
+import { FaGithub, FaTelegram, FaInstagram, FaCode, FaUserAstronaut, FaTerminal, FaGraduationCap } from 'react-icons/fa';
+import { SiNextdotjs, SiReact, SiTailwindcss, SiTypescript, SiPostgresql, SiVercel } from 'react-icons/si';
 
-
-const skills = [
-  {
-    name: "HTML",
-    icon: <FaHtml5 size={28} className="text-orange-500" />,
-    url: "https://developer.mozilla.org/docs/Web/HTML",
-  },
-  {
-    name: "CSS",
-    icon: <FaCss3Alt size={28} className="text-blue-500" />,
-    url: "https://developer.mozilla.org/docs/Web/CSS",
-  },
-  {
-    name: "JavaScript",
-    icon: <FaJs size={28} className="text-yellow-300" />,
-    url: "https://developer.mozilla.org/docs/Web/JavaScript",
-  },
-  {
-    name: "Git",
-    icon: <FaGitAlt size={28} className="text-red-500" />,
-    url: "https://git-scm.com/doc",
-  },
-  {
-    name: "GitHub",
-    icon: <FaGithub size={28} className="text-white" />,
-    url: "https://docs.github.com/",
-  },
-  {
-    name: "React",
-    icon: <FaReact size={28} className="text-cyan-400" />,
-    url: "https://react.dev/learn",
-  },
-  {
-    name: "Next.js",
-    icon: <SiNextdotjs size={28} className="text-white" />,
-    url: "https://nextjs.org/docs",
-  },
-  {
-    name: "Vite",
-    icon: <SiVite size={28} className="text-purple-400" />,
-    url: "https://vitejs.dev/guide/",
-  },
-  {
-    name: "Node.js",
-    icon: <FaNodeJs size={28} className="text-green-500" />,
-    url: "https://nodejs.org/en/docs",
-  },
-  {
-    name: "PostgreSQL",
-    icon: <SiPostgresql size={28} className="text-blue-400" />,
-    url: "https://www.postgresql.org/docs/",
-  },
-  {
-    name: "Neon DB",
-    icon: <FaDatabase size={28} className="text-fuchsia-400" />,
-    url: "https://neon.tech/docs/introduction",
-  },
-  {
-    name: "Vercel",
-    icon: <SiVercel size={28} className="text-white" />,
-    url: "https://vercel.com/docs",
-  },
-];
-
-export default function Home() {
-    const [flipped, setFlipped] = useState(false);
-  const handleClick = () => {
-    setFlipped((prev) => !prev);
-  };
-
- const containerRef = useRef<HTMLDivElement>(null);
-useEffect(() => {
-  const container = containerRef.current;
-  if (!container) return;
-
-  let rafId: number;
-
-  const scrollStep = () => {
-    if (!container) return;
-
-    container.scrollLeft += 0.5; 
-
-    if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-      container.scrollLeft = 0;
-    }
-
-    rafId = requestAnimationFrame(scrollStep);
-  };
-
-  rafId = requestAnimationFrame(scrollStep);
-
-  return () => cancelAnimationFrame(rafId);
-}, []);
-
-
- 
+export default function UltimateMurodPortfolio() {
+  const [is3DLoaded, setIs3DLoaded] = useState(false);
 
   return (
-    <main className="relative overflow-hidden min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-3 ">
-
-      <motion.section
-        className="max-w-5xl mx-auto space-y-12"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-
-      {/* React Background Watermark */}
-      <div className="absolute inset-0 z-30 blur-sm flex items-center justify-center opacity-10 pointer-events-none ">
-        <FaReact className="text-cyan-300 w-[500px] h-[500px] sm:w-[600px] sm:h-[600px]" />
+    <div className="relative min-h-screen bg-[#000] text-white font-sans overflow-x-hidden selection:bg-cyan-500/30">
+      
+      {/* 1. РОБОТ-ФОН (Интерактивный слой) */}
+      <div className="fixed inset-0 z-0">
+        <iframe 
+          src="https://my.spline.design/nexbotbyaximoriscopycopy-HnBDu16Tp5vIgr9lxxZtsjPF/" 
+          frameBorder="0" 
+          width="100%" 
+          height="100%"
+          onLoad={() => setIs3DLoaded(true)}
+          className={`w-full h-full transition-opacity duration-1000 ${is3DLoaded ? 'opacity-50' : 'opacity-0'}`}
+          style={{ pointerEvents: 'auto' }}
+        />
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
       </div>
-    
-<section className="max-w-5xl mx-auto text-center mt-30 px-4 ">
-     <motion.div
-          className="bg-gray-900 p-6 rounded-xl shadow-md border border-gray-800"
-          whileHover={{ scale: 1.02 }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.3 }}
-        >
-  <div className="relative bg-gray-900/80 hover:bg-gray-800/90 transition-all duration-300 ease-in-out rounded-2xl p-6 sm:p-8 shadow-lg transform hover:-rotate-x-1 hover:rotate-y-1 hover:scale-[1.02] perspective-1000">
-    <Image
-      src="/frontend.jpg"
-      alt="Developer Avatar"
-      width={150}
-      height={150}
-      className="rounded-full mx-auto mb-4 border-4 border-white object-cover w-[150px] h-[150px] shadow-md"
-    />
-    <h1 className="text-3xl sm:text-4xl font-bold mb-2 text-white">
-      Привет, я Мурод Frontend Developer 👋
-    </h1>
-    <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
-      Увлекаюсь созданием современных, адаптивных и быстрых интерфейсов с использованием React, Next.js, Tailwind, TypeScript и других актуальных технологий.
-    </p>
-    <p className="text-sm sm:text-base text-gray-400 mt-4 max-w-xl mx-auto">
-      Прошел обучение в IT-школе <a href="https://www.instagram.com/wepro.uz/" className="text-blue-400 font-semibold">WePro</a>. Умею работать с REST API, базами данных, делать SSR и развёртывать проекты на Vercel.
-      Ищу команду разработчиков, чтобы вместе строить полезные продукты, обмениваться опытом и расти в профессии.
-    </p>
-  </div>
-  </motion.div>
 
-</section>
-
-      {/* Skills */}
-         <motion.div
-          className="bg-gray-900 p-6 rounded-xl shadow-md border border-gray-800"
-          whileHover={{ scale: 1.02 }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.3 }}
-        >
-      <section className="max-w-5xl mx-auto ">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-8 text-center">Навыки</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center">
-          {skills.map((skill) => (
-            <a
-              key={skill.name}
-              href={skill.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-800 hover:bg-gray-700 transition p-4 rounded-xl shadow-lg flex flex-col items-center justify-center space-y-2"
-              title={`Открыть документацию ${skill.name}`}
-            >
-              {skill.icon}
-              <span className="text-sm font-medium">{skill.name}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-   </motion.div>
-
-     <motion.div
-          className="bg-gray-900 p-6 rounded-xl shadow-md border border-gray-800"
-          whileHover={{ scale: 1.02 }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.3 }}
-        >
-    <section className="max-w-5xl mx-auto  px-4 space-y-4">
-
-              <h2 className="text-2xl sm:text-3xl font-semibold mb-8 text-center">Средняя зарплата фронтенд разработчика</h2>
-
-  {/* Junior */}
-  <div className="relative h-20 rounded-2xl overflow-hidden bg-black">
-    <div className="absolute top-0 left-0 h-full w-[60%]">
-      <div className="h-full w-full bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 relative">
-        <svg
-          className="absolute right-0 top-0 h-full w-[40px]"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,100 Q50,0 100,100 Z" fill="#60a5fa" /> {/* blue-400 */}
-        </svg>
-      </div>
-    </div>
-    <div className="relative z-10 h-full flex flex-col justify-center px-6 text-white font-bold">
-      <p className="text-lg">Заработок от 10,750,000 сум</p>
-      <span className="text-sm text-gray-300 font-normal">Junior</span>
-    </div>
-  </div>
-
-  {/* Middle */}
-  <div className="relative h-20 rounded-2xl overflow-hidden bg-black">
-    <div className="absolute top-0 left-0 h-full w-[70%]">
-      <div className="h-full w-full bg-gradient-to-r from-purple-600 via-pink-500 to-pink-400 relative">
-        <svg
-          className="absolute right-0 top-0 h-full w-[40px]"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,100 Q50,0 100,100 Z" fill="#f9a8d4" /> {/* pink-400 */}
-        </svg>
-      </div>
-    </div>
-    <div className="relative z-10 h-full flex flex-col justify-center px-6 text-white font-bold">
-      <p className="text-lg">Заработок от 18,950,000 сум</p>
-      <span className="text-sm text-gray-300 font-normal">Middle</span>
-    </div>
-  </div>
-
-  {/* Senior */}
-  <div className="relative h-20 rounded-2xl overflow-hidden bg-black">
-    <div className="absolute top-0 left-0 h-full w-[85%]">
-      <div className="h-full w-full bg-gradient-to-r from-orange-800 via-orange-500 to-yellow-400 relative">
-        <svg
-          className="absolute right-0 top-0 h-full w-[40px]"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,100 Q50,0 100,100 Z" fill="#facc15" /> {/* yellow-400 */}
-        </svg>
-      </div>
-    </div>
-    <div className="relative z-10 h-full flex flex-col justify-center px-6 text-white font-bold">
-      <p className="text-lg">Заработок от 35,500,000 сум</p>
-      <span className="text-sm text-gray-300 font-normal">Senior</span>
-    </div>
-  </div>
-</section>
-</motion.div>
-
-  
-
- <section className="max-w-5xl mx-auto mt-16 px-4 mb-20">
-      <div
-        className="group relative w-full h-60 sm:h-64 perspective-1000 cursor-pointer"
-        onClick={handleClick}
-      >
-        <div
-          className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d rounded-2xl shadow-xl ${
-            flipped ? "rotate-y-180" : ""
-          } group-hover:rotate-y-180`}
-        >
-
-          
-          {/* Front side */}
-          <div className="absolute inset-0 bg-gray-800/90 rounded-2xl flex flex-col items-center justify-center text-white backface-hidden">
-            <div className="text-4xl mb-2">📞</div>
-                        <p className="text-lg sm:text-xl text-gray-300">Контакты</p>
-                        <p className="text-lg sm:text-xl text-gray-300">Ищу команду для совместной работы</p>
-
-            <p className="text-lg sm:text-xl text-gray-300">Наведи или нажми на меня</p>
-
+      {/* 2. ИНТЕРФЕЙС (Контентный слой) */}
+      <main className="relative z-10 w-full pointer-events-none">
+        
+        {/* HEADER */}
+        <nav className="flex justify-between items-center p-8 max-w-7xl mx-auto">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 border border-white/20 flex items-center justify-center font-black text-xl bg-black/40 backdrop-blur-xl">M</div>
+            <div className="text-[10px] font-mono tracking-[0.4em] opacity-40 uppercase">Murod_Engineer_Core_v2</div>
           </div>
-
-          {/* Back side */}
-          <div className="absolute inset-0 bg-gray-900/90 rounded-2xl text-white px-6 py-4 transform rotate-y-180 backface-hidden flex flex-col justify-center items-center space-y-2">
-            <h3 className="text-xl font-semibold">Связаться со мной</h3>
-            <p className="text-gray-300">📧 muro21601@gmail.com</p>
-            <div className="flex gap-4 mt-2">
-              <a
-                href="https://github.com/murodjon-afk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cyan-400 transition"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://t.me/muro_tojik"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-400 transition"
-              >
-                Telegram
-              </a>
+          <div className="pointer-events-auto hidden md:block">
+            <div className="px-6 py-2 border border-white/10 bg-white/5 backdrop-blur-xl rounded-full text-[9px] font-mono uppercase tracking-[0.2em]">
+               System_Status: <span className="text-cyan-400">Optimal</span>
             </div>
-
-            <a href="https://www.instagram.com/murod_coder007/">Instagramm</a>
           </div>
+        </nav>
+
+        {/* HERO SECTION */}
+        <section className="min-h-screen flex flex-col items-center justify-center px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center"
+          >
+            <h1 className="text-7xl md:text-[13rem] font-black leading-none tracking-tighter uppercase italic">
+              SUGDDEV<br />
+              <span className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.2)]">STUDIO</span>
+            </h1>
+            <p className="mt-8 text-xs md:text-sm font-mono tracking-[0.5em] uppercase opacity-40">Frontend / Backend</p>
+          </motion.div>
+        </section>
+
+        {/* КАРТОЧКИ С ИНФОРМАЦИЕЙ (Bento Grid) */}
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-6 pb-24">
+          
+          {/* ОБ ОБО МНЕ (System Core) */}
+          <motion.div 
+            whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }}
+            className="md:col-span-8 p-10 bg-black/40 border border-white/10 backdrop-blur-2xl rounded-[3rem] pointer-events-auto"
+          >
+            <div className="flex items-center gap-3 mb-8 text-cyan-500">
+              <FaUserAstronaut />
+              <h3 className="text-xs font-mono uppercase tracking-[0.3em]">System_Core / About_Me</h3>
+            </div>
+            <h2 className="text-4xl font-black italic uppercase mb-6">Создаю цифровую реальность</h2>
+            <p className="text-lg text-slate-400 leading-relaxed max-w-2xl font-light">
+              Меня зовут Мурод, я Frontend-инженер из Узбекистана. Моя страсть — объединять <span className="text-white italic">чистый код</span> и <span className="text-white italic">современный дизайн</span>. Я не просто строю сайты, я проектирую интерактивные системы, которые запоминаются пользователю навсегда.
+            </p>
+          </motion.div>
+
+          {/* НАВЫКИ (Hardware) */}
+          <motion.div 
+            whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }}
+            className="md:col-span-4 p-10 bg-white/5 border border-white/10 backdrop-blur-2xl rounded-[3rem] pointer-events-auto"
+          >
+            <h3 className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mb-10 text-center">Hardware_Stack</h3>
+            <div className="grid grid-cols-3 gap-y-10">
+               <SkillItem icon={<SiNextdotjs />} name="Next.js" />
+               <SkillItem icon={<SiReact />} name="React" />
+               <SkillItem icon={<SiTypescript />} name="TS" />
+               <SkillItem icon={<SiTailwindcss />} name="Tailwind" />
+               <SkillItem icon={<SiPostgresql />} name="SQL" />
+               <SkillItem icon={<SiVercel />} name="Vercel" />
+            </div>
+          </motion.div>
+
+          {/* ОПЫТ И ОБУЧЕНИЕ (Archive) */}
+          <motion.div 
+            whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }}
+            className="md:col-span-12 p-10 bg-black/40 border border-white/10 backdrop-blur-2xl rounded-[3rem] pointer-events-auto"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+               <div>
+                  <h3 className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-cyan-500 mb-8">
+                    <FaTerminal /> Experience_History
+                  </h3>
+                  <div className="space-y-6">
+                    <ExperienceItem year="2024 - Now" title="Middle Frontend Developer" company="Global Tech Solutions" />
+                    <ExperienceItem year="2023" title="Junior Frontend" company="Web Studio Pulse" />
+                  </div>
+               </div>
+               <div>
+                  <h3 className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-cyan-500 mb-8">
+                    <FaGraduationCap /> Education_Archive
+                  </h3>
+                  <div className="space-y-6">
+                    <ExperienceItem year="2026" title="CS Degree" company="Technical University" />
+                    <ExperienceItem year="2022" title="Frontend Intensive" company="Coding Academy" />
+                  </div>
+               </div>
+            </div>
+          </motion.div>
+
+          {/* СОЦСЕТИ */}
+          <div className="md:col-span-12 flex flex-wrap justify-center gap-6 pointer-events-auto">
+             <SocialIcon icon={<FaGithub />} label="Github" href="https://github.com/murodjon-afk" />
+             <SocialIcon icon={<FaTelegram />} label="Telegram" href="https://t.me/muro_tojik" />
+             <SocialIcon icon={<FaInstagram />} label="Instagram" href="https://www.instagram.com/murod_coder007/" />
+          </div>
+
         </div>
-      </div>
-    </section>
+      </main>
 
 
-</motion.section>
-     
-    </main>
+      {/* ШУМОВОЙ ЭФФЕКТ */}
+      <div className="pointer-events-none fixed inset-0 z-[100] opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+    </div>
   );
 }
 
+// Мини-компоненты для чистоты кода
+function SkillItem({ icon, name }: { icon: any, name: string }) {
+  return (
+    <div className="flex flex-col items-center gap-2 group transition-all">
+      <div className="text-3xl text-white/40 group-hover:text-cyan-400 group-hover:scale-110 transition-all">{icon}</div>
+      <span className="text-[8px] font-mono uppercase opacity-30 group-hover:opacity-100">{name}</span>
+    </div>
+  );
+}
 
+function ExperienceItem({ year, title, company }: { year: string, title: string, company: string }) {
+  return (
+    <div className="border-l border-white/10 pl-6 py-2 hover:border-cyan-500 transition-colors">
+      <p className="text-[10px] font-mono text-cyan-500 mb-1">{year}</p>
+      <h4 className="text-xl font-bold uppercase italic">{title}</h4>
+      <p className="text-sm text-slate-500">{company}</p>
+    </div>
+  );
+}
+
+function SocialIcon({ icon, label, href }: { icon: any, label: string, href: string }) {
+  return (
+    <a href={href} target="_blank" className="flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white hover:text-black transition-all group">
+      <span className="text-xl">{icon}</span>
+      <span className="text-xs font-black uppercase tracking-widest">{label}</span>
+    </a>
+  );
+}
